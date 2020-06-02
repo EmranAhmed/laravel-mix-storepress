@@ -13,7 +13,7 @@ require('laravel-mix-storepress');
 mix.js(`src/js/scripts.js`, `assets/js/scripts${min}.js`);
 
 // OS Notification
-mix.notification('Notification Title', NOTIFICATION_ICON_PATH);
+mix.notification('Notification Title', 'NOTIFICATION_ICON_PATH');  // Example: Mix.paths.root('images/icon.png')
 
 // File Banner
 mix.banner('Banner Text for every js and css file');
