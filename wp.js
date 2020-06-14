@@ -12,7 +12,7 @@ class WP {
     }
 
     dependencies() {
-        return ['exports-loader', 'babel-plugin-dynamic-import-node'];
+        return ['@babel/preset-env', 'exports-loader', 'babel-plugin-dynamic-import-node'];
     }
 
     boot() {
@@ -43,7 +43,7 @@ class WP {
 
     webpackConfig(webpackConfig) {
 
-      //  console.log(webpackConfig);
+        //  console.log(webpackConfig);
 
         /*webpackConfig.externals = {
             jquery     : 'jQuery', // var $ = require("jquery");
@@ -57,7 +57,7 @@ class WP {
     babelConfig() {
         return {
             plugins : ['dynamic-import-node'],
-            // presets : ["@babel/preset-env"],
+            presets : ["@babel/preset-env"],
         };
     }
 

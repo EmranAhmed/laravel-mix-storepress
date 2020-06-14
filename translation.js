@@ -1,5 +1,4 @@
 const mix         = require('laravel-mix');
-const wpPot       = require('wp-pot');
 const PackageFile = JSON.parse(File.find(Mix.paths.root('package.json')).read());
 
 class Translation {
@@ -26,6 +25,7 @@ class Translation {
 
     boot() {
         if (Mix.inProduction()) {
+            const wpPot = require('wp-pot');
             wpPot(this.config);
         }
     }

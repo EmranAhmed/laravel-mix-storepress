@@ -23,6 +23,10 @@ mix.translation('Package Title', 'text-domain');
 
 // Some WP Tasks
 mix.wp();
+
+// Create Package
+mix.package('File/Directory List with new line'); // Will run on: npm run package
+
 ```
 
 `package.json` Script
