@@ -1,6 +1,6 @@
 {
   "name" : "laravel-mix-storepress",
-  "version" : "0.0.1",
+  "version" : "0.0.2",
   "description" : "To make wp projects easily with laravel mix for StorePress",
   "author" : "Emran Ahmed",
   "license" : "MIT",

@@ -12,7 +12,7 @@ class WP {
     }
 
     dependencies() {
-        return ['@babel/preset-env', 'exports-loader', 'babel-plugin-dynamic-import-node'];
+        return ['@babel/preset-env', 'exports-loader', 'babel-plugin-dynamic-import-node', '@svgr/webpack'];
     }
 
     boot() {
@@ -43,6 +43,8 @@ class WP {
 
     webpackConfig(webpackConfig) {
 
+        // https://webpack.js.org/guides/build-performance/
+        webpackConfig.output.pathinfo = false;
         //  console.log(webpackConfig);
 
         /*webpackConfig.externals = {
@@ -63,13 +65,11 @@ class WP {
 
     webpackRules() {
 
-        //  console.log(Config);
-
         // Example:
-        // return {
-        //     test: /\.less$/,
-        //     loaders: ['...']
-        // });
+         return {
+             test: /\.svg$/,
+             use: [ '@svgr/webpack', 'url-loader' ],
+         };
     }
 }
 
