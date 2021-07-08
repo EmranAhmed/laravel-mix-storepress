@@ -10,11 +10,12 @@
   },
   "keywords" : [
     "laravel-mix-storepress",
-    "@wordpress/dependency-extraction-webpack-plugin",
     "storepress",
     "wordpress"
   ],
   "devDependencies" : {
-    "cross-env" : "^7.0.2"
+    "cross-env" : "^7.0.2",
+    "laravel-mix-serve" : "^2.2.1",
+    "@wordpress/dependency-extraction-webpack-plugin" : "^2.9.0"
   }
 }

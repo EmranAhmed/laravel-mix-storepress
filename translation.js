@@ -8,7 +8,7 @@ class Translation {
     }
 
     dependencies() {
-        return ['wp-pot'];
+        return ['wp-pot', 'laravel-mix-serve'];
     }
 
     register(title = PackageFile.name.toUpperCase(), textDomain = PackageFile.name.toLowerCase()) {
@@ -25,6 +25,16 @@ class Translation {
 
     boot() {
         if (Mix.inProduction()) {
+
+
+           /* mix.serve('wp i18n make-pot . --domain=text-domain', {
+                verbose: false,
+                watch: false,
+                dev: false,
+                prod: true
+            });*/
+
+
             const wpPot = require('wp-pot');
             wpPot(this.config);
         }
