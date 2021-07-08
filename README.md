@@ -42,8 +42,6 @@ mix.package('File/Directory List with new line'); // Will run on: npm run packag
 Gutenberg Block 
 ---
 
-Recommended to use `.block.js` file name for gutenberg block.
-
 By doing so you'll find that you can now utilize all `@wordpress` scoped dependencies using ECMAScript 6 import syntax. Example:
 ```js
 import { RichText } from '@wordpress/block-editor'

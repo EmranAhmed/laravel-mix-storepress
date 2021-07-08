@@ -15,10 +15,6 @@ class WPBlock extends JavaScript {
     }
 
     dependencies() {
-        this.requiresReload = `
-      Dependencies have been installed. Please run again.
-    `
-
         return [
             //'@wordpress/scripts',
             '@wordpress/babel-preset-default',

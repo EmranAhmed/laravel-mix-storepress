@@ -12,7 +12,7 @@ class WP {
     }
 
     dependencies() {
-        return ['@babel/preset-env', 'exports-loader', 'babel-plugin-dynamic-import-node', '@svgr/webpack'];
+        return ['@babel/preset-env', '@babel/plugin-syntax-dynamic-import', 'exports-loader', 'babel-plugin-dynamic-import-node', '@svgr/webpack'];
     }
 
     boot() {
@@ -45,6 +45,10 @@ class WP {
 
         // https://webpack.js.org/guides/build-performance/
         webpackConfig.output.pathinfo = false;
+
+        // webpack will generate a runtime code for web platform and will use only ES5 features.
+        webpackConfig.target = ['web', 'es5'];
+
         //  console.log(webpackConfig);
 
         /*webpackConfig.externals = {
@@ -66,10 +70,10 @@ class WP {
     webpackRules() {
 
         // Example:
-         return {
-             test: /\.svg$/,
-             use: [ '@svgr/webpack', 'url-loader' ],
-         };
+        return {
+            test : /\.svg$/,
+            use  : ['@svgr/webpack', 'url-loader'],
+        };
     }
 }
 

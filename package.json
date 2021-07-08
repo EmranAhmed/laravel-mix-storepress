@@ -1,6 +1,6 @@
 {
   "name" : "laravel-mix-storepress",
-  "version" : "0.0.2",
+  "version" : "0.0.3",
   "description" : "To make wp projects easily with laravel mix for StorePress",
   "author" : "Emran Ahmed",
   "license" : "MIT",
@@ -10,6 +10,7 @@
   },
   "keywords" : [
     "laravel-mix-storepress",
+    "@wordpress/dependency-extraction-webpack-plugin",
     "storepress",
     "wordpress"
   ],
