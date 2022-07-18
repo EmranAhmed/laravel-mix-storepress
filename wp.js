@@ -16,8 +16,8 @@ class WP {
     }
 
     boot() {
-        Config.processCssUrls       = false;
-        Config.autoprefixer.options = {
+        global.Mix.config.processCssUrls = false;
+        global.Mix.config.autoprefixer   = {
             // browsers : ['last 3 versions', '> 1%']
             // https://github.com/postcss/autoprefixer#webpack
             overrideBrowserslist : ['last 3 versions', '> 1%'],
@@ -51,11 +51,11 @@ class WP {
 
         //  console.log(webpackConfig);
 
-        /*webpackConfig.externals = {
+        webpackConfig.externals = {
             jquery     : 'jQuery', // var $ = require("jquery");
             wp         : 'wp',
             underscore : '_' // var _ = require("underscore");
-        }*/
+        }
 
         // webpackConfig.resolve.alias['@'] = Mix.paths.root('src');
     }

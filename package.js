@@ -2,6 +2,8 @@ const mix     = require('laravel-mix');
 const webpack = require('webpack');
 const path    = require("path");
 
+// const {DefinePlugin} = require("webpack");
+
 class Package {
 
     name() {
@@ -19,7 +21,7 @@ class Package {
 
     boot() {
 
-        if (process.env.NODE_ENV === 'package') {
+        if (process.env.PACKAGE && process.env.PACKAGE === 'yes') {
             if (!this.files) return;
 
             mix.then(() => {
@@ -27,7 +29,7 @@ class Package {
                 const cliColor = require("cli-color");
                 const emojic   = require("emojic");
                 const fsExtra  = require("fs-extra");
-                const root     = Mix.paths.root();
+                const root     = global.Mix.paths.root();
 
                 let bundledir = path.basename(root);
                 let copyfrom  = path.resolve(root);

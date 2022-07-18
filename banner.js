@@ -1,5 +1,4 @@
 const mix     = require('laravel-mix');
-const webpack = require('webpack');
 
 class Banner {
 
@@ -17,7 +16,8 @@ class Banner {
     }
 
     webpackPlugins() {
-        if (!Mix.inProduction()) {
+        if (!mix.inProduction()) {
+            const webpack = require('webpack');
             return new webpack.BannerPlugin(this.config)
         }
     }
