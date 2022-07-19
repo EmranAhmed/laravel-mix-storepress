@@ -1,5 +1,4 @@
-const mix     = require('laravel-mix');
-const webpack = require('webpack');
+const mix = require('laravel-mix');
 
 class WP {
 
@@ -45,25 +44,6 @@ class WP {
         global.Config.autoprefixer   = Object.assign(this.autoprefixerConfig, global.Config.autoprefixer);
     }
 
-    /*
-     * Plugins to be merged with the underlying webpack plugins array.
-     *
-     * @return {Array|Object}
-     */
-    webpackPlugins() {
-        /*return [
-            new webpack.ProvidePlugin({
-                $               : 'jquery',
-                jQuery          : 'jquery',
-                'window.jQuery' : 'jquery',
-                // Popper: ['popper.js', 'default'],
-                // In case you imported plugins individually, you must also require them here:
-                // Util: "exports-loader?Util!bootstrap/js/dist/util",
-                // Dropdown: "exports-loader?Dropdown!bootstrap/js/dist/dropdown",
-            })
-        ];*/
-    }
-
     /**
      * Override the underlying webpack configuration.
      *
@@ -79,8 +59,6 @@ class WP {
 
         // webpack will generate a runtime code for web platform and will use only ES5 features.
         webpackConfig.target = ['web', 'es5'];
-
-        //  console.log(webpackConfig);
 
         webpackConfig.externals = {
             jquery     : 'jQuery', // var $ = require("jquery");

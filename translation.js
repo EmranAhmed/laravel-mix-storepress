@@ -1,6 +1,7 @@
 const mix         = require('laravel-mix');
 const File        = require('laravel-mix/src/File');
-const PackageFile = JSON.parse(File.find(Mix.paths.root('package.json')).read());
+const PackageFile = JSON.parse(File.find(global.Mix.paths.root('package.json')).read());
+const fs          = require('fs');
 
 class Translation {
 
@@ -14,7 +15,7 @@ class Translation {
      * @return {Array}
      */
     dependencies() {
-        //return ['wp-pot', 'laravel-mix-serve'];
+        // return ['wp-pot', 'laravel-mix-serve'];
         return ['wp-pot', 'cross-env'];
     }
 
@@ -34,6 +35,12 @@ class Translation {
      */
     register(title = PackageFile.name.toUpperCase(), textDomain = PackageFile.name.toLowerCase()) {
 
+        const hasLanguageDirectory = File.exists(global.Mix.paths.root('languages'));
+
+        if (!hasLanguageDirectory) {
+            fs.mkdirSync(global.Mix.paths.root('languages'), {mode : 0o777, recursive : true});
+        }
+
         this.config = {
             package   : title,
             bugReport : '',
@@ -50,14 +57,6 @@ class Translation {
      */
     boot() {
         if (global.Mix.inProduction()) {
-
-            /* mix.serve('wp i18n make-pot . --domain=text-domain', {
-                 verbose: false,
-                 watch: false,
-                 dev: false,
-                 prod: true
-             });*/
-
             const wpPot = require('wp-pot');
             wpPot(this.config);
         }

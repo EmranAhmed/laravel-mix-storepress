@@ -1,5 +1,4 @@
-const mix  = require('laravel-mix');
-const File = require('laravel-mix/src/File');
+const mix = require('laravel-mix');
 
 class Notifications {
     passive = true;
@@ -33,6 +32,7 @@ class Notifications {
      */
     register(title = '', icon = global.Mix.paths.root('node_modules/laravel-mix-storepress/icons/wp.png'), always = true) {
 
+        const File        = require('laravel-mix/src/File');
         const PackageFile = JSON.parse(File.find(global.Mix.paths.root('package.json')).read());
 
         this.config = {
