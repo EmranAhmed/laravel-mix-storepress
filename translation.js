@@ -38,7 +38,7 @@ class Translation {
         const hasLanguageDirectory = File.exists(global.Mix.paths.root('languages'));
 
         if (!hasLanguageDirectory) {
-            fs.mkdirSync(global.Mix.paths.root('languages'), {mode : 0o777, recursive : true});
+            fs.mkdirSync(global.Mix.paths.root('languages'), {mode : 0o777});
         }
 
         this.config = {
