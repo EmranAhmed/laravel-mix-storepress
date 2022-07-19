@@ -1,4 +1,4 @@
-const mix     = require('laravel-mix');
+const mix = require('laravel-mix');
 
 class Banner {
 
@@ -6,6 +6,19 @@ class Banner {
         return 'banner';
     }
 
+    /**
+     * Register the component.
+     *
+     * When your component is called, all user parameters
+     * will be passed to this method.
+     *
+     * Ex: register(src, output) {}
+     * Ex: mix.yourPlugin('src/path', 'output/path');
+     *
+     * @param  {string} banner
+     * @return {void}
+     *
+     */
     register(banner = '') {
 
         this.config = {
@@ -15,6 +28,11 @@ class Banner {
         }
     }
 
+    /*
+     * Plugins to be merged with the underlying webpack plugins array.
+     *
+     * @return {Array|Object}
+     */
     webpackPlugins() {
         if (!mix.inProduction()) {
             const webpack = require('webpack');

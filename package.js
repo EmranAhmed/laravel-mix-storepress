@@ -10,15 +10,37 @@ class Package {
         return 'package';
     }
 
+    /**
+     * Register the component.
+     *
+     * When your component is called, all user parameters
+     * will be passed to this method.
+     *
+     * Ex: register(src, output) {}
+     * Ex: mix.yourPlugin('src/path', 'output/path');
+     *
+     * @param  {string} filesList
+     * @param  {boolean} copyDirectory
+     * @return {void}
+     *
+     */
     register(filesList, copyDirectory = false) {
         this.files  = filesList || '';
         this.copyTo = copyDirectory;
     }
 
+    /**
+     * All npm dependencies that should be installed by Mix.
+     *
+     * @return {Array}
+     */
     dependencies() {
         return ['fs-extra', 'cli-color', 'emojic'];
     }
-
+    /**
+     * Boot the component. This method is triggered after the
+     * user's webpack.mix.js file has processed.
+     */
     boot() {
 
         if (process.env.PACKAGE && process.env.PACKAGE === 'yes') {
